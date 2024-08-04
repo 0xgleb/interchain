@@ -1,0 +1,8 @@
+# Nix
+.devenv
+.direnv
+.pre-commit-config.yaml
+
+
+# Rust
+/target
