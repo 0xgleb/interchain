@@ -1,4 +1,4 @@
-# Rust Nix Flake Quickstart
+# Interchain
 
 ## Getting started
 
