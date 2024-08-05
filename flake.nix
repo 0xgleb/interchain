@@ -45,8 +45,8 @@
             modules = [{
               # https://devenv.sh/reference/options/
               packages = with pkgs;
-                [ nil cargo-watch ] ++ lib.optionals stdenv.isDarwin
-                (with darwin.apple_sdk; [
+                [ nil cargo-watch clang pkg-config ]
+                ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk; [
                   libiconv
                   frameworks.Security
                   frameworks.CoreFoundation
@@ -58,6 +58,8 @@
                 channel = "stable";
                 toolchain = inputs.fenix.packages.${pkgs.system}.latest;
               };
+
+              env.RUST_BACKGTRACE = "1";
 
               dotenv.enable = true;
               difftastic.enable = true;

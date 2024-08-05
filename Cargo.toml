@@ -1,4 +1,40 @@
+[package]
+name = "interchain-execution-client"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
 
-
-[workspace]
-members = ["consensus", "execution"]
+[dependencies]
+eyre = "0.6"
+reth = { git = "https://github.com/paradigmxyz/reth", features = ["optimism"] }
+reth-chainspec.git = "https://github.com/paradigmxyz/reth"
+reth-cli-runner.git = "https://github.com/paradigmxyz/reth"
+reth-cli-commands.git = "https://github.com/paradigmxyz/reth"
+reth-cli-util.git = "https://github.com/paradigmxyz/reth"
+reth-primitives.git = "https://github.com/paradigmxyz/reth"
+reth-payload-builder.git = "https://github.com/paradigmxyz/reth"
+reth-auto-seal-consensus.git = "https://github.com/paradigmxyz/reth"
+reth-basic-payload-builder.git = "https://github.com/paradigmxyz/reth"
+reth-consensus.git = "https://github.com/paradigmxyz/reth"
+reth-optimism-payload-builder.git = "https://github.com/paradigmxyz/reth"
+reth-rpc-types.git = "https://github.com/paradigmxyz/reth"
+reth-rpc.git = "https://github.com/paradigmxyz/reth"
+reth-rpc-types-compat.git = "https://github.com/paradigmxyz/reth"
+reth-node-api.git = "https://github.com/paradigmxyz/reth"
+reth-node-builder.git = "https://github.com/paradigmxyz/reth"
+reth-tracing.git = "https://github.com/paradigmxyz/reth"
+reth-provider.git = "https://github.com/paradigmxyz/reth"
+reth-transaction-pool.git = "https://github.com/paradigmxyz/reth"
+reth-network.git = "https://github.com/paradigmxyz/reth"
+reth-evm.git = "https://github.com/paradigmxyz/reth"
+reth-revm.git = "https://github.com/paradigmxyz/reth"
+reth-evm-optimism.git = "https://github.com/paradigmxyz/reth"
+reth-node-optimism.git = "https://github.com/paradigmxyz/reth"
+reth-beacon-consensus.git = "https://github.com/paradigmxyz/reth"
+reth-optimism-consensus.git = "https://github.com/paradigmxyz/reth"
+reth-discv5.git = "https://github.com/paradigmxyz/reth"
+reth-rpc-eth-types.git = "https://github.com/paradigmxyz/reth"
+reth-rpc-eth-api.git = "https://github.com/paradigmxyz/reth"
+reth-optimism-rpc.git = "https://github.com/paradigmxyz/reth"
+reth-tasks.git = "https://github.com/paradigmxyz/reth"
+clap_builder = "4.5.13"
