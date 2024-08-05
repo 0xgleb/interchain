@@ -216,9 +216,11 @@ where
             requests_root: None,
         };
 
+        let body = vec![];
+
         let block = Block {
             header,
-            body: vec![],
+            body,
             ommers: vec![],
             withdrawals,
             requests: None,

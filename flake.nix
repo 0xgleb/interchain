@@ -2,7 +2,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
     flake-utils.url = "github:numtide/flake-utils";
-    devenv.url = "github:cachix/devenv";
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     pre-commit-hooks = {
       url = "github:cachix/pre-commit-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -45,21 +48,36 @@
             modules = [{
               # https://devenv.sh/reference/options/
               packages = with pkgs;
-                [ nil cargo-watch clang pkg-config ]
-                ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk; [
+                [
+                  nil
+                  cargo-watch
+                  llvm_18
+                  cmake
+                  clang
+                  openssl.dev
+                  pkg-config
+                  libclang.dev
+                  # ] ++ lib.optionals stdenv.isDarwin [
+                  #   libiconv
+                  #   darwin.CF
+                  #   darwin.IOKit
+                  #   darwin.Security
+                  #   darwin.SystemConfiguration
+                  # ];
+                ] ++ lib.optionals stdenv.isDarwin (with darwin.apple_sdk; [
                   libiconv
                   frameworks.Security
                   frameworks.CoreFoundation
                   frameworks.SystemConfiguration
                 ]);
 
+              env.RUST_BACKTRACE = "1";
               languages.rust = {
                 enable = true;
                 channel = "stable";
-                toolchain = inputs.fenix.packages.${pkgs.system}.latest;
+                inherit (channel) toolchain;
+                rustflags = "-C target-cpu=native";
               };
-
-              env.RUST_BACKGTRACE = "1";
 
               dotenv.enable = true;
               difftastic.enable = true;
