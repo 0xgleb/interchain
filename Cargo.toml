@@ -6,7 +6,10 @@ resolver = "2"
 
 [dependencies]
 eyre = "0.6"
-reth = { git = "https://github.com/paradigmxyz/reth", features = ["optimism"] }
+# magi.git = "https://github.com/a16z/magi"
+reth = { git = "https://github.com/paradigmxyz/reth", default-features = false, features = [
+  "optimism",
+] }
 reth-chainspec.git = "https://github.com/paradigmxyz/reth"
 reth-cli-runner.git = "https://github.com/paradigmxyz/reth"
 reth-cli-commands.git = "https://github.com/paradigmxyz/reth"
@@ -38,3 +41,4 @@ reth-rpc-eth-api.git = "https://github.com/paradigmxyz/reth"
 reth-optimism-rpc.git = "https://github.com/paradigmxyz/reth"
 reth-tasks.git = "https://github.com/paradigmxyz/reth"
 clap_builder = "4.5.13"
+tonlib = "0.17.0"
