@@ -1,0 +1,14 @@
+[package]
+name = "interchain-consensus-client"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+[dependencies]
+dirs = "5.0.1"
+eyre = "0.6.12"
+magi.git = "https://github.com/a16z/magi"
+serde = { version = "1.0.152", features = ["derive"] }
+clap = { version = "3.2.18", features = ["derive", "env"] }
+tokio = { version = "1.28.0", features = ["full"] }
+tracing = "0.1.36"
